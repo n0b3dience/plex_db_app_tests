@@ -1,0 +1,30 @@
+// COLORS
+// White & Gray Colors
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+// Plex Colors
+$plex-orange : rgb(229, 169, 13);
+$plex-main : rgb(41, 51, 63);
+$plex-accent : rgb(35, 43, 54);
+$plex-dkgray : rgb(51, 58, 69);
+$plex-ltgray : rgb(221, 221, 221);
+
+// Bootstrap Custom Colors
+$primary: $plex-orange;
+$secondary: $plex-main;
+
+// Import Bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+// Import Bootstrap Icons
+@import '../bs-icons/bootstrap-icons.scss'

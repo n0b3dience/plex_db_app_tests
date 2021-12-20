@@ -1,0 +1,25 @@
+{
+  "name": "plex_dashboard",
+  "version": "1.0.0",
+  "description": "Plex Dashboard App",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "main": "index.js",
+  "scripts": {
+    "css-build": "node-sass --omit-source-map-url style.scss css/style.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "bootstrap": "^5.1.3",
+    "bootstrap-icons": "^1.7.1"
+  },
+  "devDependencies": {
+    "node-sass": "^6.0.1"
+  }
+}

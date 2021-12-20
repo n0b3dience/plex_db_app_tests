@@ -1,0 +1,19 @@
+<div class="card text-white bg-secondary mb-3"> <!-- POST DISPLAY -->
+  <div class="row">
+    <div class="col">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <div class="col pb-2 px-1">
+          <hr>
+        </div>
+        <p class="card-text mb-3">{{ post.text }}</p>
+        <!-- FOOTER -->
+        <div class="flex-row d-flex"> <!-- >>BUTTON<<: EDIT POST -->
+          <a class="btn btn-sm btn-dark nav-link text-light" href="{{ url_for('edit', id=post.id) }}">
+            <i class="bi bi-pencil-square"></i></i><span class="ms-2 d-none d-sm-inline">Edit</span></a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div> <!-- //POST DISPLAY -->

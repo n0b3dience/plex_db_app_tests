@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-light mb-5 mt-2">{{ title }}</h2>
+<div class="d-flex justify-content-end mb-3">
+  <a class="btn-lg btn-primary nav-link text-white" href="{{ url_for('create') }}" role="button"> <!-- >>BUTTON<<: CREATE POST -->
+    <i class="bi bi-files"></i><span class="ms-2 d-none d-sm-inline">Create Post</span>
+  </a>
+</div>
+{% for post in posts %}
+  {% if post.is_live == 1 %}
+  <div class="card bg-secondary mb-3">
+    <div class="row">
+      <div class="col">
+        <div class="card-body text-light">
+          <a class="text-light" style="text-decoration: none;" href="{{ url_for('post', id=post.id) }}">
+            <h5 class="card-title">{{ post.title }}</h5>
+          </a>
+          <div class="col pb-2 px-1">
+            <hr>
+          </div>
+          <a class="text-light" style="text-decoration: none;" href="{{ url_for('post', id=post.id) }}">
+            <p class="card-text mb-3">{{ post.text }}</p>
+          </a>
+          <div class="flex-row d-flex"> <!-- >>BUTTON<<: EDIT POST -->
+            <a class="btn btn-sm btn-dark nav-link text-light" href="{{ url_for('edit', id=post.id) }}">
+              <i class="bi bi-pencil-square"></i></i><span class="ms-2 d-none d-sm-inline">Edit</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-light mb-5 mt-2">{{ title }}</h2>
+
+<div class="card text-white bg-secondary p-4">
+  <form method="post" action="">
+    {{ form.hidden_tag() }}
+
+    <div class="flex-row-reverse d-flex"> <!-- _LABEL_:USERNAME -->
+      <label class="h5" for="title">Username</label>
+    </div>
+
+    <div class="row mb-2"> <!-- [INPUT]:USERNAME -->
+      {{ form.username(class="form-label form-control form-control-lg") }}
+    </div>
+
+    <div class="flex-row-reverse d-flex"> <!-- _LABEL_:EMAIL -->
+      <label class="h5" for="title">Email Address</label>
+    </div>
+
+    <div class="row mb-2"> <!-- [INPUT]:EMAIL ADDRESS -->
+      {{ form.email(class="form-label form-control form-control-lg") }}
+    </div>
+
+    <div class="flex-row-reverse d-flex"> <!-- _LABEL_:PASSWORD -->
+      <label class="h5" for="title">Password</label>
+    </div>
+
+    <div class="row mb-2"> <!-- [INPUT]:PASSWORD -->
+      {{ form.password(class="form-label form-control form-control-lg") }}
+    </div>
+
+    <div class="flex-row-reverse d-flex"> <!-- _LABEL_:CONFIRM PASSWORD -->
+      <label class="h5" for="title">Confrim Password</label>
+    </div>
+
+    <div class="row mb-2"> <!-- [INPUT]:CONFIRM PASSWORD -->
+      {{ form.confirm_password(class="form-label form-control form-control-lg") }}
+    </div>
+
+    <div class="flex-row-reverse d-flex"> <!-- >>BUTTONS<<:SUBMIT | CANCEL -->
+      
+      <a href="{{ url_for('users') }}" class="text-decoration-none"> <!-- >>CANCEL<< -->
+        <button class="btn btn-dark ms-2" type="button"><i class="bi bi-x-circle"></i><span class="ms-1 d-none d-sm-inline">Cancel</span></button>
+      </a>
+
+      <button class="btn btn-primary ms-2" type="submit" name="submit"><i class="bi bi-check-circle"></i><span class="ms-1 d-none d-sm-inline">Submit</span></button> <!-- >>SUBMIT<< -->
+
+    </div>
+
+  </form>
+
+</div>
+
+{% endblock content %}

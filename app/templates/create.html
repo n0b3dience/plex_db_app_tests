@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-light mb-5 mt-2">{{ title }}</h2>
+
+<div class="card text-white bg-secondary p-4">
+  <form method="post">
+    {{ form.hidden_tag() }}
+
+    <div class="flex-row-reverse d-flex"> <!-- _LABEL_:POST TITLE -->
+      <label class="h5" for="title">Title</label>
+    </div>
+
+    <div class="row mb-2"> <!-- [INPUT]:POST TITLE -->
+      {{ form.title(class="form-label form-control form-control-lg", type="text", placeholder="(Title)") }}
+    </div>
+
+    <div class="flex-row-reverse d-flex"> <!-- _LABEL_:POST CONTENT -->
+      <label for="content">Post Content</label>
+    </div>
+
+    <div class="row mb-2"> <!-- [INPUT]:POST CONTENT -->
+      <textarea class="form-text form-control mb-2" name="content" placeholder="(Message)" rows="15"></textarea>
+    </div>
+
+    <div class="flex-row-reverse d-flex"> <!-- >>BUTTONS<<:SUBMIT | CANCEL -->
+      
+      <a href="{{ url_for('posts') }}">
+        <button class="btn btn-dark ms-2" type="button"><i class="bi bi-x-circle"></i><span class="ms-1 d-none d-sm-inline">Cancel</span></button>
+      </a>
+      
+      <button class="btn btn-primary ms-2" type="submit"><i class="bi bi-check-circle"></i><span class="ms-1 d-none d-sm-inline">Submit</span></button>
+
+      {# {{ form.submit(class="btn btn-primary ms-2") }} #}
+
+    </div>
+
+  </form>
+
+</div>
+{% endblock %}

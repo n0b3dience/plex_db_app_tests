@@ -1,0 +1,10 @@
+{% for message in get_flashed_messages() %}
+<div class="toast text-white bg-alert" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="d-flex">
+    <div class="toast-body">
+      <i class="bi bi-exclamation-triangle"></i><span class="ms-1 d-none d-sm-inline">{{ message }}</span>
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+</div>
+{% endfor %}

@@ -1,0 +1,22 @@
+<h2 class="text-light mb-5 mt-2">Recently Added Shows</h2>
+
+<div class="row g-sm-1 g-md-2 g-lg-3 g-xl-4 g-xxl-5">
+{% for i in recently_added_shows %}
+<div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 mb-5"> <!-- ||CARD COL|| -->
+  <a href="{{ get_page('info', rating_key=i.rating_key) }}" style="text-decoration: none;"> <!-- (LINK WRAPPER) -->
+    <div class="card hover_card rounded bg-secondary text-light m-1"> <!-- CARD -->
+      <div class="ratio ratio-3x4"> <!-- IMG CARD -->
+        <img class="img-media-card rounded-top" src="{{ get_page('pms_image_proxy', img=i.parent_thumb) }}" alt="{{ i.title }} - {{ i.grandparent_title }} ({{ i.parent_title }})">
+      </div>
+      <div class="p-2"> <!-- CARD TEXT -->
+        <h5 class="card-title text-truncate">{{ i.title }}</h5>
+        <p class="card-text text-truncate">{{ i.grandparent_title }}
+          <br>
+          <span class="text-muted">S{{ i.parent_media_index }}E{{ i.media_index }}</span>
+        </p>
+      </div>
+    </div>
+  </a>
+</div>
+{% endfor %}
+</div>

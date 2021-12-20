@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-light mb-5 mt-2">{{ title }}</h2>
+
+<div class="card text-white bg-secondary p-4">
+  <form method="post" action="">
+    {{ form.hidden_tag() }}
+
+    <div class="flex-row-reverse d-flex"> <!-- _LABEL_:EMAIL -->
+      <label class="h5" for="title">Email</label>
+    </div>
+
+    <div class="row mb-2"> <!-- [INPUT]:EMAIL -->
+      {{ form.email(class="form-label form-control form-control-lg") }}
+    </div>
+
+    <div class="flex-row-reverse d-flex"> <!-- _LABEL_:PASSWORD -->
+      <label class="h5" for="title">Password</label>
+    </div>
+
+    <div class="row mb-2"> <!-- [INPUT]:PASSWORD -->
+      {{ form.password(class="form-label form-control form-control-lg") }}
+    </div>
+
+    <div class="flex-row d-flex align-items-end"> <!-- >>BUTTON<<:SUBMIT -->
+      
+      <div class="ms-auto me-3 my-auto align-items-center">
+        <label class="form-check-label" for="rememberMeCheckbox">Remember Me</label>
+        {{ form.remember(class="form-check-input", type="checkbox", id="rememberMeCheckbox", value="remember") }}
+      </div>
+      <button class="btn btn-primary ms-2" type="submit" name="submit"><i class="bi bi-check-circle"></i><span class="ms-1 d-none d-sm-inline">Submit</span></button>
+  </div>
+
+  </form>
+
+</div>
+
+{% endblock content %}

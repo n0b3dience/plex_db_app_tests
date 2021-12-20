@@ -1,0 +1,16 @@
+///
+/// Sizing styles
+///
+
+.img-media-card {
+  position: absolute;
+  object-fit: cover;
+}
+
+.img-avi {
+  object-fit: cover;
+}
+
+.img-square {
+  object-fit: contain
+}

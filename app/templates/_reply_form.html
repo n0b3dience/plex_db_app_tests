@@ -1,0 +1,13 @@
+<form id="replyForm-{{ item.id }}" method="post" action="{{ url_for('replyparent', parent_id=item.id, post_id=post_id) }}">
+  {{ reply_form.hidden_tag() }}
+  
+  {{ reply_form.content(class="form-text form-control mb-2") }}
+
+  <div class="flex-row d-flex"> <!-- >>BUTTONS<<:SUBMIT | CANCEL -->
+    
+    <button class="btn btn-sm btn-light ms-auto" form="replyForm-{{ item.id }}" type="submit" value="submit"><i class="bi bi-check-circle"></i><span class="ms-1 d-none d-sm-inline">Submit</span></button>  <!-- >>SUBMIT<< -->
+    
+    <button class="btn btn-sm btn-dark ms-2" data-bs-toggle="collapse" data-bs-target="#replyCollapse-{{ item.id }}"  aria-expanded="false" aria-controls="replyCollapse-{{ item.id }}"><i class="bi bi-x-circle"></i><span class="ms-1 d-none d-sm-inline">Cancel</span></button> <!-- >>CANCEL<< -->
+
+  </div>
+</form>

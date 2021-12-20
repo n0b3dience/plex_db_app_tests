@@ -1,0 +1,57 @@
+// COLORS
+//
+// White & Gray Colors
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+// Plex Colors
+$plex-orange:  rgb(229, 169, 13);
+$plex-main:    rgb(41, 51, 63);
+$plex-accent:  rgb(35, 43, 54);
+$plex-dkgray:  rgb(51, 58, 69);
+$plex-ltgray:  rgb(221, 221, 221);
+$plex-warn:    rgb(221, 143, 70);
+$plex-success: rgb(28, 178, 140);
+$plex-danger:  rgb(173, 70, 70);
+$plex-info:    rgb(88, 171, 255);
+
+// Bootstrap Theme Custom Colors
+$primary:   $plex-orange;
+$secondary: $plex-accent;
+$success:   $plex-success;
+$info:      $plex-info;
+$warning:   $plex-warn;
+$danger:    $plex-danger;
+$light:     $plex-ltgray;
+$dark:      $plex-dkgray;
+
+// Bootstrap Body/Text Colors
+$body-bg:    $plex-main;
+$body-color: $plex-ltgray;
+
+// Bootstrap Aspect Ratio Additions
+$aspect-ratios: (
+  "1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%),
+  "3x4" : calc(4 / 3 * 100%),
+  "9x16" : calc(16 / 9 * 100%),
+  "9x21" : calc(21 / 9 * 100%)
+);
+
+// Import Partials
+@import './partials/sizing';
+@import './partials/animations';
+
+// Import Bootstrap
+@import '../bootstrap/scss/bootstrap'

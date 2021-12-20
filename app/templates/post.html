@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include "_post_display.html" %}
+
+{% include "_comment_form.html" %}
+
+{# COMMENTS/REPLIES #}
+{% if post_comment_tbl %}
+
+<div class="hr"></div>
+<div class="h5">Comments:</div>
+<div class="hr"></div>
+
+  
+  {% for comment in comments %}
+    {% if not comment.parent_id %}
+    <div class="card text-light bg-secondary p-4 mb-3">
+      
+      {% with item=comment %}
+      {% include "_post_comment_display.html" %}
+      {% endwith %}
+
+      <div class="flex-row d-flex"> <!-- >>BUTTON<<:REPLY -->
+        <button class="btn btn-sm btn-dark nav-link text-light ms-auto" data-bs-toggle="collapse" data-bs-target="#replyCollapse-{{ comment.id }}"  aria-expanded="false" aria-controls="replyCollapse-{{ comment.id }}">Reply</button>
+      </div>
+      <!-- ::COLLAPSE:: REPLY FORM -->
+      <div class="collapse" id="replyCollapse-{{ comment.id }}">
+        <div class="border border-light p-4 rounded-3 my-3">
+          
+          {% with item=comment %}
+          {% include "_reply_form.html" %}
+          {% endwith %}
+
+        </div>
+      </div> <!-- //::COLLAPSE:: REPLY FORM -->
+      
+      {% for reply in comments recursive %}
+        {% if reply.parent_id == comment.id %}
+        <hr>
+
+        <div class="card text-light bg-secondary p-4 mb-2 ms-1">
+          <!-- DISPLAY REPLY -->
+          {% with item=reply %}
+          {% include "_reply_display.html" %}
+          {% endwith %}
+
+          <div class="flex-row-reverse d-flex"> <!-- >>BUTTON<<:REPLY -->
+            <button class="btn btn-sm btn-secondary" data-bs-toggle="collapse" data-bs-target="#replyCollapse-{{ reply.id }}"  aria-expanded="false" aria-controls="replyCollapse-{{ reply.id }}">Reply</button>
+          </div>
+          
+          <!-- ::COLLAPSE:: REPLY FORM 2 -->
+          <div class="collapse" id="replyCollapse-{{ reply.id }}">
+            <div class="border border-2 border-light p-4 rounded-3 my-3">
+
+              {% with item=reply %}
+              {% include "_reply_form_2.html" %}
+              {% endwith %}
+
+            </div>
+          </div> <!-- //::COLLAPSE:: REPLY FORM -->
+
+        </div>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+
+    {% endif %}
+  {% endfor %}
+
+{% else %}
+<div class="hr"></div>
+<div class="h5 text-muted">No comments</div>
+<div class="hr"></div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-light mb-5 mt-2">{{ title }}</h2>
+  {% for data in data_set %}
+  <div class="card text-white bg-secondary mb-3">
+    <div class="row g-0">
+      <div class="col-10">
+        <div class="card-body">
+          <h5 class="card-title"><strong>{{ data.username }}</strong></h5>
+          <!-- User ID -->
+          <p class="card-text">User ID: {{ data.user_id }}</p>
+          <!-- Email -->
+          <p class="card-text">Email Address: {% if data.email %}{{ data.email }}{% else %}
+            <span class="text-muted">No email available</span>{% endif %}</p>
+          <!-- Server Token -->
+          <div class="row pb-0">
+            <div class="col-auto">
+              <p class="card-text">Server Token: </p>
+            </div>
+              {% if data.server_token %}
+              <div class="col">
+                <div class="collapse" id="token-{{ data.user_id }}">
+                  <p class="m-0">{{ data.server_token }}</p>
+                </div>
+              </div>
+              <div class="col-auto">
+                <a class="px-3 py-1" data-bs-toggle="collapse" href="#token-{{ data.user_id }}" aria-expanded="false" aria-controls="token-{{ data.user_id }}"><i class="bi-eye-fill text-light"></i></a>
+              </div>
+              {% else %}
+              <div class="col bg-secondary">
+                <p class="text-muted">No server token</p>
+              </div>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="mx-3 mt-3">
+          <div class="row justify-content-center">
+            <div class="image-fluid rounded">
+              <img src="{{ data.thumb }}" alt="" class="ratio ratio-1x1" alt="User Avatar">
+            </div>
+            {% if data.is_admin %}
+            <div class="row justify-content-center">
+              <p class="mt-2 text-center"><span class="badge rounded-pill text-dark bg-primary">admin</span></h6>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+{% endblock %}

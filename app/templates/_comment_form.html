@@ -1,0 +1,17 @@
+<div class="card text-white bg-secondary p-4 mt-4 mb-3"> <!-- COMMENT FORM -->
+  <form id="commentForm" method="post" action="{{ url_for('postcomment', post_id=post_id) }}">
+    {{ comment_form.hidden_tag() }}
+
+    <div class="flex-row mb-2"> <!-- [INPUT]:COMMENT -->
+      <textarea class="form-text form-control mb-2" name="content" placeholder="Leave a comment" rows="6">{{ comment_form.text }}</textarea>
+    </div>
+
+    <div class="flex-row d-flex"> <!-- >>BUTTONS<<:SUBMIT | CANCEL -->
+      <button class="btn btn-primary ms-auto" form="commentForm" type="submit" value="submit"><i class="bi bi-check-circle"></i><span class="ms-1 d-none d-sm-inline">Submit</span></button>
+      <a href="{{ url_for('posts') }}">
+        <button class="btn btn-dark ms-2" type="button"><i class="bi bi-x-circle"></i><span class="ms-1 d-none d-sm-inline">Cancel</span></button>
+      </a>
+    </div>
+
+  </form>
+</div> <!-- //COMMENT FORM -->

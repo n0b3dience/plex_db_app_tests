@@ -1,0 +1,37 @@
+<!-- Sidebar -->
+<div class="col-auto px-sm-2 px-0 bg-dark" style="max-width: 300px;">
+  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+    <a href="{{ url_for('home') }}" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <span class="fs-5 d-none d-sm-inline">Media Server</span>
+    </a>
+    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+
+      <li class="nav-item"> <!-- Home -->
+        <a href="{{ url_for('home') }}" class="nav-link align-middle px-0">
+          <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+        </a>
+      </li>
+
+      <li> <!-- Posts -->
+        <a href="{{ url_for('posts') }}" class="nav-link px-0 align-middle">
+          <i class="fs-4 bi-files"></i> <span class="ms-1 d-none d-sm-inline">Posts</span></a>
+      </li>
+
+      <li> <!-- Users -->
+        <a href="{{ url_for('users') }}" class="nav-link px-0 align-middle">
+          <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Users</span> </a>
+      </li>
+
+      <li> <!-- Login -->
+        <a href="{{ url_for('login') }}" class="nav-link px-0 align-middle">
+          <i class="fs-4 bi-door-open"></i> <span class="ms-1 d-none d-sm-inline">Login</span></a>
+      </li>
+
+      <li> <!-- Signup -->
+        <a href="{{ url_for('signup') }}" class="nav-link px-0 align-middle">
+          <i class="fs-4 bi-person-plus"></i> <span class="ms-1 d-none d-sm-inline">Signup</span></a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- //Sidebar -->
